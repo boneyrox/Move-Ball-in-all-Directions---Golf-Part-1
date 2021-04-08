@@ -3,7 +3,7 @@ import "../styles/App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={time: 0, x: 0, y: 0 ,top:0,left:0,srartTime:0};
+    this.state ={time: 0, x: 0, y: 0 ,top:0,left:0,startTime:0};
     this.buttonClickHandler=this.buttonClickHandler.bind(this);
     this.handeleventlistner=this.handeleventlistner.bind(this);
     this.tick=this.tick.bind(this);
