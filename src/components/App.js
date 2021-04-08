@@ -3,7 +3,7 @@ import "../styles/App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={time: 0, x: 0, y: 0 ,top:0,left:0,startTime:0};
+    this.state ={time: 0, x: 0, y: 0 ,top:0,left:0,startTime:0,clicked:false};
     this.buttonClickHandler=this.buttonClickHandler.bind(this);
     this.handeleventlistner=this.handeleventlistner.bind(this);
     this.tick=this.tick.bind(this);
@@ -19,6 +19,7 @@ class App extends React.Component {
     document.addEventListener("keydown",this.handeleventlistner);
     clearInterval(this.timerID);
     this.setState({time: 0, x: 0, y: 0 ,top:0,left:0,startTime:Date.now()})
+    this.setState({clicked:true})
     this.timerID = setInterval(
       () => this.tick(),
       1000
@@ -75,7 +76,11 @@ class App extends React.Component {
     <div className="ball" style={{ position:"absolute",top:this.state.top +"px",
       left:this.state.left +"px",
       }}></div>
-      <button className="start" onClick={this.buttonClickHandler} >Start timer</button>
+     {
+       !this.state.clicked?(
+              <button className="start" onClick={this.buttonClickHandler} >Start timer</button>
+       ):false
+     }
       <div className="hole" ></div>
       <div className="heading-timer">{this.state.time}</div>
     </div>
